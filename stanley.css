@@ -1,0 +1,35 @@
+img {
+    width: 30%;
+    margin: calc(10%/6);
+    opacity: 0.8;
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+body {
+    background-color: #fec5bb;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Boldonse', system-ui;
+    background-color: #fcd5ce;
+    display: inline;
+    font-size: 3em;
+    color: #6d6875;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+    margin: 20px 50px;
+    padding: 0.2em 0.5em;
+
+}
+
+
+img:hover:not(.lightbox-image) {
+    border-color: #a2d2ff;
+    color: rgb(90, 67, 67);
+    transform: translateY(-4em);
+    cursor: pointer;
+    opacity: 1;
+}

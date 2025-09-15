@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stanley.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <h1>Stanley Cup Universe</h1>
+    <p></p>
+
+    <img src="striped.webp" alt=""><img src="rosa.webp" alt=""><img src="gruen.webp" alt="">
+
+    <img src="bunt.webp" alt="bunt stanley cup"><img src="rosa2.webp" alt="rosa stanley cup"><img src="blau.webp"
+        alt="">
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Alle Bilder auswählen
+        const images = document.querySelectorAll("img");
+
+        // Overlay-Element erstellen
+        const overlay = document.createElement("div");
+        overlay.style.position = "fixed";
+        overlay.style.top = "0";
+        overlay.style.left = "0";
+        overlay.style.width = "100%";
+        overlay.style.height = "100%";
+        overlay.style.backgroundColor = "rgba(0,0,0,0.8)";
+        overlay.style.display = "flex";
+        overlay.style.justifyContent = "center";
+        overlay.style.alignItems = "center";
+        overlay.style.zIndex = "1000";
+        overlay.style.cursor = "zoom-out";
+        overlay.style.visibility = "hidden";
+        overlay.style.overflow = "auto";
+
+
+        // Großes Bild im Overlay
+        const bigImage = document.createElement("img");
+        bigImage.classList.add("lightbox-image"); // <- eigene Klasse
+
+        bigImage.style.borderRadius = "12px";
+
+        bigImage.style.maxWidth = "95%";
+        bigImage.style.maxHeight = "95%";
+        bigImage.style.height = "auto";
+        bigImage.style.width = "auto";
+
+        overlay.appendChild(bigImage);
+        document.body.appendChild(overlay);
+
+        // Klick-Events für jedes Bild
+        images.forEach(img => {
+            img.style.cursor = "zoom-in";
+            img.addEventListener("click", () => {
+                bigImage.src = img.src;
+                overlay.style.visibility = "visible";
+            });
+        });
+
+        // Klick auf Overlay schließt das Bild
+        overlay.addEventListener("click", () => {
+            overlay.style.visibility = "hidden";
+            bigImage.src = "";
+        });
+    });
+</script>
+
+
+
+
+</html>
